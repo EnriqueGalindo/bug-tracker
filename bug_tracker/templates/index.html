@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+    </head>
+
+    <body>
+        <header>
+            <h1 style="text-align: center;">Welcome to the Bug Tracker</h1>
+        </header>
+        <div >
+            <a href="/new_ticket/">Add a New Ticket</a>
+            <a href="/logout/">Log Out</a>
+            {% if user.is_staff %}<a href="/register/">Create an account</a>{% endif %}
+        </div>
+        <br>
+        <div >
+            <h2>New Tickets</h2>
+            {% for ticket in data %}
+            <ul>
+                <li>Title: <a href="/ticket_detail/{{ticket.id}}">{{ticket.title}}</a></li>
+                <li>Description: {{ticket.description}}</li>
+                <li>Created by: {{ ticket.user_name }}</li>
+                <li>Ticket Status: {{ticket.status}}</li>
+            </ul>
+            <br>
+            {% endfor %}
+        </div>
+
+        <div>
+            <h2> In Progress Tickets</h2>
+            {% for ticket in in_progress %}
+            <ul>
+                <li>Title: <a href="/ticket_detail/{{ticket.id}}">{{ticket.title}}</a></li>
+                <li>Description: {{ticket.description}}</li>
+                <li>Created by: {{ ticket.user_name }}</li>
+                <li>Ticket Status: {{ticket.ticket_status}}</li>
+            </ul>
+            <br>
+            {% endfor %}
+        </div>
+
+        <div>
+            <h2 >Completed Tickets</h2>
+            {% for ticket in done %}
+            <ul>
+                <li>Title: <a href="/ticket_detail/{{ticket.id}}">{{ticket.title}}</a></li>
+                <li>Description: {{ticket.description}}</li>
+                <li>Created by: {{ ticket.user_name }}</li>
+                <li>Ticket Status: {{ticket.ticket_status}}</li>
+            </ul>
+            <br>
+            {% endfor %}
+        </div>
+
+        <div>
+            <h2 style="text-align: center;">Invalid Tickets</h2>
+            {% for ticket in invalid %}
+            <ul>
+                <li>Title: <a href="/ticket_detail/{{ticket.id}}">{{ticket.title}}</a></li>
+                <li>Description: {{ticket.description}}</li>
+                <li>Created by: {{ ticket.user_name }}</li>
+                <li>Ticket Status: {{ticket.ticket_status}}</li>
+            </ul>
+            <br>
+            {% endfor %}
+        </div>
+    </body>
+
+</html>

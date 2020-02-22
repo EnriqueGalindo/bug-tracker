@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <body>
+        {% load static %}
+        <header>
+            <h1>Ticket Detail Page</h1>
+        </header>
+
+        <div id="detailContent">
+            <h2 style="text-align: center;">{{data.title}}</h2>
+            <br>
+            <p>{{ data.description }}</p>
+            <br>
+            <p>Created by: <a href="/userpage/{{data.user_name.id}}/">{{data.user_name}}</a></p>
+            <p>Assigned to:
+                {% if data.assigned_user is not None %}
+                <a href="/userpage/{{data.assigned_to.id}}">{{data.assigned_to}}</a>
+                {% else %}
+                {{data.assigned_to}}
+                {% endif %}
+            </p>
+
+            <p>Completed by:
+                {% if data.completed_user is not None %}
+                <a href="/userpage/{{data.completed_user.id}}/">{{data.completed_by}}</a>
+                {% else %}
+                {{data.completed_by}}
+                {% endif %}
+            </p>
+
+            <p>Created on: {{data.date}}</p>
+            <p>Status: {{data.status}}</p>
+            <br>
+            <div id="ticketButtons">
+                <a href="/updateticket/{{data.id}}/">
+                    Update Ticket
+                </a>
+
+                <a href="/completedticket/{{data.id}}/">
+                    Complete Ticket
+                </a>
+
+                <a href="/invalidticket/{{data.id}}/">
+                    Invalid Ticket
+                </a>
+            </div>
+        </div>
+    </body>
+
+</html>
