@@ -1,0 +1,37 @@
+<div>
+    <!-- Submitted by tickets -->
+    <div>
+        <div>
+            <div>
+                <div>
+                    <div>{{ submitted_tickets|length }}</div>
+                    Submitted Tickets
+                </div>
+                <div>
+                    <a class="add-issue no-decoration" href="/addticket">
+                        <i class="plus"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                {% for ticket in submitted_tickets %}
+                <div>
+                    <div>
+                        <strong>
+                            <a href="/ticket/{{ticket.id}}">
+                                {{ ticket.title }}
+                            </a>
+                        </strong>
+                        <a href="/edit/{{ticket.id}}"></a>
+                    </div>
+                    <div>
+                        #{{ ticket.id }} opened by 
+                        <a class="no-decoration" href="/user/{{ticket.filed_by.id}}">
+                            {{ ticket.filed_by }}
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>

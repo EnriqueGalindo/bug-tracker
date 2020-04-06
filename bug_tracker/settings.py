@@ -25,7 +25,7 @@ SECRET_KEY = '596!i-*_285(l7yc^89ow%63go^%^^_sanr%zhw!i)h^)ss(xa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'custom_user.apps.CustomUserConfig',
     'tickets.apps.TicketsConfig',
+    'bug_tracker'
 ]
 
 MIDDLEWARE = [
@@ -120,5 +121,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+LOGIN_URL = '/login/'
 AUTH_USER_MODEL = 'custom_user.MyCustomUser'

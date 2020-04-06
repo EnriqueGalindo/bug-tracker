@@ -7,12 +7,12 @@
             <h1>Ticket Detail Page</h1>
         </header>
 
-        <div id="detailContent">
+        <div>
             <h2 style="text-align: center;">{{data.title}}</h2>
             <br>
             <p>{{ data.description }}</p>
             <br>
-            <p>Created by: <a href="/userpage/{{data.user_name.id}}/">{{data.user_name}}</a></p>
+            <p>Created by: <a href="/userpage/{{data.filed_by.id}}/">{{data.filed_by}}</a></p>
             <p>Assigned to:
                 {% if data.assigned_user is not None %}
                 <a href="/userpage/{{data.assigned_to.id}}">{{data.assigned_to}}</a>
@@ -32,16 +32,16 @@
             <p>Created on: {{data.date}}</p>
             <p>Status: {{data.status}}</p>
             <br>
-            <div id="ticketButtons">
-                <a href="/updateticket/{{data.id}}/">
+            <div>
+                <a href="/edit/{{data.id}}/">
                     Update Ticket
                 </a>
 
-                <a href="/completedticket/{{data.id}}/">
+                <a href="/complete/{{data.id}}/">
                     Complete Ticket
                 </a>
 
-                <a href="/invalidticket/{{data.id}}/">
+                <a href="/invalid/{{data.id}}/">
                     Invalid Ticket
                 </a>
             </div>

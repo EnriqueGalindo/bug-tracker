@@ -29,10 +29,17 @@ class Ticket(models.Model):
     assigned_to = models.ForeignKey(
                                     MyCustomUser,
                                     on_delete=models.CASCADE,
-                                    related_name='assigned_to'
+                                    related_name='assigned_to',
+                                    null=True,
+                                    blank=True,
+                                    default=None
                                     )
+
     completed_by = models.ForeignKey(
                                      MyCustomUser,
                                      on_delete=models.CASCADE,
-                                     related_name='completed_by'
+                                     related_name='completed_by',
+                                     null=True,
+                                     blank=True,
+                                     default=None
                                      )
